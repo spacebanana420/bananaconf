@@ -17,7 +17,7 @@ private def isSetting(line: String, keywords: Seq[String], i: Int = 0): Boolean 
   else if startsWith(keywords(i)) then true
   else isSetting(line, keywords, i+1)
 
-def readConfig(conf: String, settings: Vector[String]): Vector[String] =
+def readConfig(conf: String, settings: Seq[String]): Vector[String] =
   val src = Source.fromFile(conf)
   val cfg = src
     .getLines()
@@ -55,15 +55,15 @@ def getFirstValue(cfg: Seq[String], setting: String, i: Int = 0): String =
       getFirstValue(cfg, setting, i+1)
 
 
-def parseFirstValue(cfg: Seq[String], setting: String, i: Int = 0): Vector[String] =
-  parseEntry(getFirstValue(cfg, setting, i))
+def parseFirstValue(cfg: Seq[String], separator: Char, setting: String, i: Int = 0): Vector[String] =
+  parseEntry(getFirstValue(cfg, setting, i), separator)
 
-def parseEntry(entry: String, e1: String = "", e2: String = "", i: Int = 0, first: Boolean = true): Vector[String] =
+def parseEntry(entry: String, separator: Char, e1: String = "", e2: String = "", i: Int = 0, first: Boolean = true): Vector[String] =
   if i >= entry.length then
     Vector(e1, e2)
-  else if entry(i) == ':' && first then
-    parseEntry(entry, e1, e2, i+1, false)
+  else if entry(i) == separator && first then
+    parseEntry(entry, separator, e1, e2, i+1, false)
   else if first then
-    parseEntry(entry, e1 + entry(i), e2, i+1, first)
+    parseEntry(entry, separator, e1 + entry(i), e2, i+1, first)
   else
-    parseEntry(entry, e1, e2 + entry(i), i+1, first)
+    parseEntry(entry, separator, e1, e2 + entry(i), i+1, first)

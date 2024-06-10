@@ -1,4 +1,4 @@
-package bananapath
+package bananaconf
 
 import java.io.File
 import java.io.FileOutputStream
