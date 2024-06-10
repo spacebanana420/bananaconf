@@ -1,2 +1,5 @@
-# bananaconf
-Scala library for reading and writing plain text config files
+# Bananaconf
+
+Bananaconf is a simple library for reading and writing plain text config files. The library itself is very small, providing you freedom to setup configurations as you wish.
+
+This repository is brand new and in early development.
