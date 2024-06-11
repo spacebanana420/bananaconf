@@ -11,6 +11,6 @@ Bananaconf is a simple library for reading and writing plain text config files. 
 
 Documentation can be found in the following categories:
 
-* ### [Config reader](doc/reader.md)
-* ### [Config writer](doc/writer.md)
-* ### [Misc](doc/misc.md)
+* #### [Config reader](doc/reader.md)
+* #### [Config writer](doc/writer.md)
+* #### [Misc](doc/misc.md)
