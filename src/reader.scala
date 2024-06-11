@@ -87,3 +87,5 @@ def readFirstEntry(cfg: Seq[String], setting: String, i: Int = 0): String =
 
 def parseFirstEntry(cfg: Seq[String], separator: Char, setting: String, i: Int = 0): Vector[String] =
   parseEntry(readFirstEntry(cfg, setting, i), separator)
+
+def getValue_parse(line: String, setting: String, separator: Char): Vector[String] = parseEntry(getValue(line, setting), separator)

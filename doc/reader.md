@@ -58,7 +58,13 @@ Gets the value of a given setting line. It's not necessary to use this function 
 
 By passing the setting
 ```setting1=abc:4:kogger```
-through ```getValue()```, we get the string ```abc:4:kogger```.
+through ```getValue()``` this waty:
+
+```scala
+getValue("setting1=abc:4:kogger", "setting1=")
+```
+
+we get the string ```"abc:4:kogger"```.
 
 ---
 ```scala
@@ -104,3 +110,17 @@ Similar to ```readEntries()```, but only returns the first setting it finds.
 def parseFirstEntry(cfg: Seq[String], separator: Char, setting: String, i: Int = 0): Vector[String]
 ```
 Parses an obtained entry value, essentially working as a combination of ```parseEntry()``` with ```readFirstEntry()```
+
+```scala
+def getValue_parse(line: String, setting: String, separator: Char): Vector[String]
+```
+Reads the value from a setting entry and parses it. This function is a convenient combination of ```getValue()``` and ```parseEntry()```.
+
+```scala
+val setting_line = "option=doremy:1920:1080:run before it's too late"
+getValue_parse(setting_line, "option=", ':')
+```
+The following function call would return the vector
+```scala
+Vector("doremy", "1920", "1080", "run before it's too late")
+```
