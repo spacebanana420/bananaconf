@@ -111,6 +111,8 @@ def parseFirstEntry(cfg: Seq[String], separator: Char, setting: String, i: Int =
 ```
 Parses an obtained entry value, essentially working as a combination of ```parseEntry()``` with ```readFirstEntry()```
 
+---
+
 ```scala
 def getValue_parse(line: String, setting: String, separator: Char): Vector[String]
 ```
