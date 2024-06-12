@@ -27,7 +27,7 @@ You can read the config and its properties this way:
 ```scala
 import bananaconf.*
 
-val settings = Vector("use_ffmpeg=", "resolution=", "output_path=")
+val settings = Vector("use_ffmpeg=", "resolution=", "output_path=", "file=")
 val config_settings = readConfig("config.txt", settings, '#') //Reads the config into a Vector[String] containing the lines that have the accepted settings
 // Lines that start with '#' are ignored
 
