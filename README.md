@@ -11,6 +11,7 @@ Bananaconf is a simple library for reading and writing plain text config files. 
 
 Imagine you have the following config, named "config.txt":
 ```
+# This is a comment and will not be read
 use_ffmpeg=true
 resolution=1920:1080
 output_path=/path/to/file
@@ -22,7 +23,7 @@ You can read the config and its properties this way:
 import bananaconf.*
 
 val settings = Vector("use_ffmpeg=", "resolution=", "output_path=")
-val config_settings = readConfig("config.txt", settings) //Reads the config into a Vector[String] containing the lines that have the accepted settings
+val config_settings = readConfig("config.txt", settings, '#') //Reads the config into a Vector[String] containing the lines that have the accepted settings
 
 val use_ffmpeg = readFirstEntry(config_settings, "use_ffmpeg=") //Returns the string "yes"
 val use_ffmpeg_bool = getVal_bool(use_ffmpeg) //Converts the "yes" to a "true" boolean
