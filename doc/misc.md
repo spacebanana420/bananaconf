@@ -23,7 +23,7 @@ If ```opt``` cannot be converted to a number, then this function returns 0, othe
 
 ---
 ```scala
-def getVal_boolean(opt: String): Boolean
+def getVal_bool(opt: String): Boolean
 ```
 If ```opt``` is "true" or "yes" (not case sensitive) then return true, otherwise false.
 

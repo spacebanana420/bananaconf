@@ -15,7 +15,7 @@ def getVal_byte(opt: String): Byte =
   try opt.toByte
   catch case e: Exception => 0
 
-def getVal_boolean(opt: String): Boolean =
+def getVal_bool(opt: String): Boolean =
   val l_opt = opt.toLowerCase()
   l_opt == "true" || l_opt == "yes"
 
