@@ -12,11 +12,11 @@ Returns a boolean value depending on whether a file at the path ```conf``` exist
 ---
 
 ```scala
-def readConfig(conf: String, settings: Seq[String], comment_char: Char): Vector[String]
+def readConfig(conf: String, settings: Seq[String] = Vector(), comment_char: Char): Vector[String]
 ```
 Reads the file in the path ```conf``` and returns a vector, with each string representing a line.
 
-```settings``` filters lines that do not start with its keywords.
+```settings``` filters lines that do not start with the keywords in this sequence. You can disable this filter by using the default value or passing an empty sequence.
 
 Lines whose first character is ```comment_char``` are ignored.
 
@@ -31,7 +31,7 @@ setting3=doremy
 ```
 
 ```scala
-readConfig("config.txt", Vector("setting1=", "setting2="), '#')
+readConfig("config.txt", '#', Vector("setting1=", "setting2="))
 ```
 This function call would return the following vector:
 ```scala

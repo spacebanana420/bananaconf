@@ -28,7 +28,7 @@ You can read the config and its properties this way:
 import bananaconf.*
 
 val settings = Vector("use_ffmpeg=", "resolution=", "output_path=", "file=")
-val config_settings = readConfig("config.txt", settings, '#') //Reads the config into a Vector[String] containing the lines that have the accepted settings
+val config_settings = readConfig("config.txt", '#', settings) //Reads the config into a Vector[String] containing the lines that have the accepted settings
 // Lines that start with '#' are ignored
 
 val use_ffmpeg = readFirstEntry(config_settings, "use_ffmpeg=") //Returns the string "yes"
@@ -36,7 +36,7 @@ val use_ffmpeg_bool = getVal_bool(use_ffmpeg) //Converts the "yes" to a "true" b
 
 val resolution =
   getVal_parse(config_settings, "resolution=", ':') //Returns the Vector("1920", "1080")
-  .map(x => getVal_int(x)) //Converts the strings to ints, returning a Vector[Int](1920, 1080)
+  .map(x => getVal_int(x)) //Safely converts the strings to ints, returning a Vector[Int](1920, 1080)
 
 val output_path = getVal(config_settings, "output_path=") //Gets the string "/path/to/file"
 

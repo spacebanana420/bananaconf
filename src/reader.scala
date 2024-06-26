@@ -17,11 +17,11 @@ private def isSetting(line: String, keywords: Seq[String], i: Int = 0): Boolean 
   else if startsWith(keywords(i)) then true
   else isSetting(line, keywords, i+1)
 
-def readConfig(conf: String, settings: Seq[String], comment_char: Char): Vector[String] =
+def readConfig(conf: String, comment_char: Char, settings: Seq[String] = Vector()): Vector[String] =
   val src = Source.fromFile(conf)
   val cfg = src
     .getLines()
-    .filter(x => x.length > 0 && isSetting(x, settings) && x(0) != comment_char)
+    .filter(x => x.length > 0 && (settings.length == 0 || isSetting(x, settings)) && x(0) != comment_char)
     .toVector
   src.close()
   cfg
